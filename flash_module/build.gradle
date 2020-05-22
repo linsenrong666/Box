@@ -1,0 +1,50 @@
+def androidConfig = rootProject.ext.android
+def dependenciesConfig = rootProject.ext.dependencies
+apply plugin: 'com.android.library'
+apply plugin: 'kotlin-android'
+apply plugin: 'kotlin-android-extensions'
+apply plugin: 'kotlin-kapt'
+
+android {
+    compileSdkVersion androidConfig.compileSdkVersion
+    buildToolsVersion androidConfig.buildToolsVersion
+
+    defaultConfig {
+        minSdkVersion androidConfig.minSdkVersion
+        targetSdkVersion androidConfig.targetSdkVersion
+        versionCode androidConfig.versionCode
+        versionName androidConfig.versionName
+        multiDexEnabled true
+
+        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+
+    kapt {
+        arguments {
+            arg("AROUTER_MODULE_NAME", project.getName())
+        }
+    }
+}
+
+dependencies {
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+
+    implementation dependenciesConfig.appcompat
+    implementation dependenciesConfig.kotlinStdlibJdk7
+    implementation dependenciesConfig.coreKtx
+    testImplementation dependenciesConfig.junit
+    androidTestImplementation dependenciesConfig.androidxTestExt
+    androidTestImplementation dependenciesConfig.androidxTestEspresso
+    implementation dependenciesConfig.arouterApi
+    annotationProcessor dependenciesConfig.arouterCompiler
+
+    implementation project(":lib")
+    implementation project(":user_center")
+}

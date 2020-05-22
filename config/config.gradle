@@ -1,0 +1,56 @@
+allprojects {
+    //add repository
+    apply from: "${getConfigPath()}/repository.gradle"
+}
+
+project.ext {
+
+    android = [
+            compileSdkVersion: 29,
+            buildToolsVersion: "29.0.2",
+            applicationId    : "com.box",
+            minSdkVersion    : 21,
+            targetSdkVersion : 29,
+            versionCode      : 1,
+            versionName      : "1.0",
+    ]
+
+    appcompatVersion = '1.1.0'
+    kotlin_version = '1.3.72'
+
+    dependencies = [
+            "appcompat"           : "androidx.appcompat:appcompat:${appcompatVersion}",
+            "material"           : "com.google.android.material:material:${appcompatVersion}",
+            "kotlinStdlibJdk7"    : "org.jetbrains.kotlin:kotlin-stdlib-jdk7:${kotlin_version}",
+            "coreKtx"             : "androidx.core:core-ktx:1.2.0",
+
+            "arouterApi"          : "com.alibaba:arouter-api:1.5.0",
+            "arouterCompiler"     : "com.alibaba:arouter-compiler:1.2.2",
+
+            "junit"               : "junit:junit:4.12",
+            "androidxTestExt"     : "androidx.test.ext:junit:1.1.1",
+            "androidxTestEspresso": "androidx.test.espresso:espresso-core:3.2.0",
+
+            "multidex"            : "com.android.support:multidex:1.0.2",
+    ]
+
+
+    product = [
+            keystore_release : file('keystore/android.keystore'),
+            store_debug      : file('keystore/debug.keystore'),
+            keystore_password: "boxboxbox",
+            keystore_alias   : "android.keystore",
+            key_password     : "boxboxbox",
+    ]
+}
+
+def getConfigPath() {
+    String configDirPath = rootProject.projectDir.getAbsolutePath() + "/config"
+    println("configDir = " + configDirPath)
+    File file = new File(configDirPath)
+    if (file.exists()) {
+        return file
+    }
+    configDirPath = rootProject.projectDir.getAbsolutePath() + "/config"
+    return new File(configDirPath)
+}

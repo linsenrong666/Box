@@ -1,0 +1,8 @@
+rootProject.name='Box'
+include ':app'
+include ':lib'
+include ':lib_resource'
+include ':biz'
+include ':uikit'
+include ':flash_module'
+include ':user_center'

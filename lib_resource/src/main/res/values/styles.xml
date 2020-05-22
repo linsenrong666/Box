@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <!-- Base application theme. -->
+    <style name="BoxAppTheme" parent="Theme.AppCompat.Light.NoActionBar">
+        <!-- Customize your theme here. -->
+        <item name="colorPrimary">@color/main_color</item>
+        <item name="colorPrimaryDark">@color/main_color</item>
+        <item name="colorAccent">@color/main_color</item>
+    </style>
+
+    <!-- 界面切换动画 -->
+    <style name="ActivityTransitionAnim" parent="@android:style/Animation.Activity">
+        <item name="android:activityOpenEnterAnimation">@anim/slide_from_right</item>
+        <item name="android:activityOpenExitAnimation">@anim/slide_to_left</item>
+        <item name="android:activityCloseExitAnimation">@anim/slide_to_right</item>
+        <item name="android:activityCloseEnterAnimation">@anim/slide_from_left</item>
+    </style>
+
+    <style name="Button">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textColor">@color/white</item>
+        <item name="android:textSize">@dimen/font_middle</item>
+    </style>
+
+    <style name="Button.MainColor">
+        <item name="android:background">@drawable/bg_main_btn_selector</item>
+    </style>
+
+    <style name="EditText">
+        <item name="android:background">@color/transparent</item>
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textCursorDrawable">@null</item>
+        <item name="android:textSize">@dimen/font_middle</item>
+        <item name="android:textColor">@color/text_primary</item>
+        <item name="android:textColorHint">@color/text_primary_weak</item>
+        <item name="android:padding">@dimen/small</item>
+    </style>
+
+    <style name="TextView">
+        <item name="android:textSize">@dimen/font_middle</item>
+        <item name="android:textColor">@color/text_primary_dark</item>
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+    </style>
+
+    <style name="TextView.MainColor">
+        <item name="android:textColor">@color/main_color</item>
+    </style>
+
+    <style name="TextView.TitleLv2">
+        <item name="android:textSize">@dimen/font_large</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:textColor">@color/text_primary_black</item>
+    </style>
+
+    <style name="TextView.TitleLv3">
+        <item name="android:textSize">@dimen/font_middle</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:textColor">@color/text_primary_black</item>
+    </style>
+
+    <style name="TextViewButton">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:paddingTop">@dimen/tiny</item>
+        <item name="android:paddingBottom">@dimen/tiny</item>
+        <item name="android:paddingLeft">@dimen/small</item>
+        <item name="android:paddingRight">@dimen/small</item>
+        <item name="android:textSize">@dimen/font_middle</item>
+    </style>
+
+    <style name="TextViewButton.MainColor">
+        <item name="android:textColor">@color/white</item>
+        <item name="android:background">@drawable/bg_main_btn_selector</item>
+    </style>
+
+    <style name="TextViewButton.StokeMainColor">
+        <item name="android:textColor">@color/color_main_p_selector</item>
+        <item name="android:background">@drawable/bg_stroke_main_color_btn</item>
+    </style>
+
+    <style name="FlashSalesTime" parent="TextView">
+        <item name="android:textSize">@dimen/font_mini</item>
+        <item name="android:textColor">@color/white</item>
+        <item name="android:background">@color/text_primary_black</item>
+        <item name="android:padding">1dp</item>
+    </style>
+
+    <style name="SalesLabel">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textSize">8sp</item>
+        <item name="android:paddingTop">2dp</item>
+        <item name="android:paddingBottom">2dp</item>
+        <item name="android:paddingLeft">4dp</item>
+        <item name="android:paddingRight">4dp</item>
+        <item name="android:textColor">@color/main_color</item>
+        <item name="android:background">@drawable/bg_stroke_main_color_round</item>
+        <item name="android:singleLine">true</item>
+    </style>
+
+    <style name="ImageView">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:scaleType">centerCrop</item>
+        <item name="android:background">@color/background_image</item>
+    </style>
+
+    <style name="ImageView.Goods">
+        <item name="android:layout_width">88dp</item>
+        <item name="android:layout_height">88dp</item>
+        <item name="android:src">@mipmap/placeholders_goods</item>
+    </style>
+
+    <style name="ImageView.Goods.Small">
+        <item name="android:layout_width">64dp</item>
+        <item name="android:layout_height">64dp</item>
+    </style>
+
+    <style name="divider_horizontal">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">0.5dp</item>
+        <item name="android:background">@drawable/divider_horizontal</item>
+    </style>
+
+</resources>

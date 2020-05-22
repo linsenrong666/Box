@@ -1,0 +1,17 @@
+apply from: "${rootProject.projectDir}/config/config.gradle"
+
+buildscript {
+    configurations.all {
+        resolutionStrategy {
+            cacheChangingModulesFor 1, 'minutes'
+            cacheDynamicVersionsFor 1, 'minutes'
+        }
+    }
+    apply from: "${rootProject.projectDir}/config/repository.gradle", to: buildscript
+    apply from: "${rootProject.projectDir}/config/bsd.gradle", to: buildscript
+}
+
+
+task clean(type: Delete) {
+    delete rootProject.buildDir
+}

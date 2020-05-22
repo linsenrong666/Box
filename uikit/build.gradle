@@ -1,0 +1,42 @@
+def androidConfig = rootProject.ext.android
+def dependenciesConfig = rootProject.ext.dependencies
+apply plugin: 'com.android.library'
+
+android {
+    compileSdkVersion androidConfig.compileSdkVersion
+    buildToolsVersion androidConfig.buildToolsVersion
+
+    defaultConfig {
+        minSdkVersion androidConfig.minSdkVersion
+        targetSdkVersion androidConfig.targetSdkVersion
+        versionCode androidConfig.versionCode
+        versionName androidConfig.versionName
+        multiDexEnabled true
+
+        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+
+}
+
+dependencies {
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+
+    api dependenciesConfig.appcompat
+    api dependenciesConfig.material
+    testImplementation dependenciesConfig.junit
+    androidTestImplementation dependenciesConfig.androidxTestExt
+    androidTestImplementation dependenciesConfig.androidxTestEspresso
+
+    api project(":lib_resource")
+    //SmartRefresh 下拉刷新
+    api 'com.scwang.smart:refresh-layout-kernel:2.0.0'      //核心必须依赖
+    api 'com.scwang.smart:refresh-header-classics:2.0.0'    //经典刷新头
+    api 'com.scwang.smart:refresh-footer-classics:2.0.0'    //经典加载
+}

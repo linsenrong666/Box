@@ -1,0 +1,15 @@
+<resources>
+
+    <style name="login_linear_layout_divider">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:showDividers">beginning|middle|end</item>
+        <item name="android:divider">@drawable/divider_horizontal</item>
+        <item name="android:background">@color/white</item>
+        <item name="android:orientation">vertical</item>
+    </style>
+
+    <style name="LoginEditText" parent="EditText">
+        <item name="android:padding">@dimen/middle</item>
+    </style>
+</resources>

@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fillViewport="true"
+    tools:context=".gui.activities.LoginActivity">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <LinearLayout
+            style="@style/login_linear_layout_divider"
+            android:layout_marginTop="50dp">
+
+            <EditText
+                android:id="@+id/login_account_et"
+                style="@style/LoginEditText"
+                android:drawablePadding="@dimen/middle"
+                android:hint="@string/login_hint_login_tip"/>
+
+            <EditText
+                android:id="@+id/login_password_et"
+                style="@style/LoginEditText"
+                android:drawablePadding="@dimen/middle"
+                android:hint="@string/login_hint_password_tip"
+                android:inputType="textPassword"/>
+
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/login_forgot_password_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="right"
+            android:layout_marginTop="50dp"
+            android:padding="@dimen/middle"
+            android:text="@string/login_forgot_password"
+            android:textColor="@color/color_text_primary_selector"
+            android:textSize="@dimen/font_small"/>
+
+        <Button
+            android:id="@+id/login_confirm_btn"
+            style="@style/Button.MainColor"
+            android:layout_margin="@dimen/middle"
+            android:text="@string/confirm"/>
+
+        <TextView
+            android:id="@+id/login_register_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:padding="@dimen/middle"
+            android:text="@string/login_register_new_account"
+            android:textColor="@color/color_main_selector"
+            android:textSize="@dimen/font_small"/>
+
+
+        <TextView
+            android:id="@+id/login_wechat_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:padding="@dimen/middle"
+            android:text="@string/login_wechat_login"
+            android:textColor="@color/color_main_selector"
+            android:textSize="@dimen/font_small"/>
+
+    </LinearLayout>
+</ScrollView>

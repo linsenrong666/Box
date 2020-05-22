@@ -1,0 +1,16 @@
+<resources>
+    <string name="login_wechat_login"><u>微信登陆</u></string>
+    <string name="login_forgot_password"><u>忘记密码</u></string>
+    <string name="login_register_new_account"><u>注册新账号</u></string>
+    <string name="login_register_account">请输入用户名</string>
+    <string name="login_register_password">请输入密码</string>
+    <string name="login_register_confirm_password">请确认密码</string>
+    <string name="login_register_phone">请输入手机号码</string>
+    <string name="login_register_code">请输入收到的验证码</string>
+    <string name="login_register_invite_code">请输入推荐码</string>
+    <string name="login_hint_login_tip">请输入手机号/用户名</string>
+    <string name="login_hint_password_tip">请输入密码</string>
+    <string name="login_hint_phone_tip">请输入手机号</string>
+    <string name="login_hint_code_tip">请输入验证码</string>
+    <string name="login_hint_new_password_tip">请输入新密码</string>
+</resources>

@@ -1,0 +1,47 @@
+def androidConfig = rootProject.ext.android
+def dependenciesConfig = rootProject.ext.dependencies
+apply plugin: 'com.android.library'
+
+android {
+    compileSdkVersion androidConfig.compileSdkVersion
+    buildToolsVersion androidConfig.buildToolsVersion
+
+    defaultConfig {
+        minSdkVersion androidConfig.minSdkVersion
+        targetSdkVersion androidConfig.targetSdkVersion
+        versionCode androidConfig.versionCode
+        versionName androidConfig.versionName
+        multiDexEnabled true
+
+        javaCompileOptions {
+            annotationProcessorOptions {
+                arguments = [AROUTER_MODULE_NAME: project.getName()]
+            }
+        }
+
+        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+
+}
+
+dependencies {
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+
+    implementation dependenciesConfig.appcompat
+    testImplementation dependenciesConfig.junit
+    androidTestImplementation dependenciesConfig.androidxTestExt
+    androidTestImplementation dependenciesConfig.androidxTestEspresso
+    implementation dependenciesConfig.arouterApi
+    annotationProcessor dependenciesConfig.arouterCompiler
+
+    api project(':lib')
+    api project(':uikit')
+    api project(':flash_module')
+}

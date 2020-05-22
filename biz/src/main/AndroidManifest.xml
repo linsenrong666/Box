@@ -1,0 +1,12 @@
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.box.biz">
+
+    <application>
+        <activity
+            android:name=".gui.activities.LoginActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".gui.activities.MainActivity"
+            android:screenOrientation="portrait" />
+    </application>
+</manifest>
