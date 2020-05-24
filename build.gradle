@@ -1,6 +1,10 @@
 apply from: "${rootProject.projectDir}/config/config.gradle"
 
 buildscript {
+
+    dependencies {
+        classpath 'com.android.tools.build:gradle:3.6.1'
+    }
     configurations.all {
         resolutionStrategy {
             cacheChangingModulesFor 1, 'minutes'

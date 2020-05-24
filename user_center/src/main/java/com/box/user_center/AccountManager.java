@@ -1,14 +1,16 @@
 package com.box.user_center;
 
-import android.accounts.Account;
+import android.text.TextUtils;
 
 import com.box.lib.utils.mmkv.MMKVManager;
 import com.box.user_center.model.AccountPojo;
+import com.tencent.mmkv.MMKV;
 
-public class AccountManager {
+public class AccountManager implements AccountConstants {
 
     private static volatile AccountManager mInstance;
     private AccountPojo mCurrentUser = null;
+    private MMKV mAccountMMKV;
 
     public static AccountManager getInstance() {
         if (mInstance != null) {
@@ -23,18 +25,38 @@ public class AccountManager {
     }
 
     public void init() {
-
+        mAccountMMKV = MMKVManager.getInstance().mmkv(MMKV_ACCOUNT);
+        saveAccount(mAccountMMKV.getString(KEY_ACCOUNT, null));
     }
 
     public boolean isLoggedIn() {
-        return getCurrentUser() != null;
+        return getAccount() != null;
     }
 
-    public AccountPojo getCurrentUser() {
-        return mCurrentUser;
+    public void login(String account) {
+        saveAccount(account);
     }
 
-    public void setCurrentUser(AccountPojo currentUser) {
-        mCurrentUser = currentUser;
+    public void logout() {
+        mAccountMMKV.encode(KEY_ACCOUNT, "");
+        mAccountMMKV.encode(KEY_SESSION_ID, "");
+    }
+
+    public void saveAccount(String account) {
+        if (TextUtils.isEmpty(account)) {
+            return;
+        }
+        mAccountMMKV.encode(KEY_ACCOUNT, account);
+        mAccountMMKV.encode(KEY_SESSION_ID, account);
+    }
+
+    public AccountPojo getAccount() {
+        String account = mAccountMMKV.decodeString(KEY_ACCOUNT);
+        if (TextUtils.isEmpty(account)) {
+            return null;
+        }
+        AccountPojo pojo = new AccountPojo();
+        pojo.setAccount(account);
+        return pojo;
     }
 }

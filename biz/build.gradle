@@ -44,4 +44,5 @@ dependencies {
     api project(':lib')
     api project(':uikit')
     api project(':flash_module')
+    api project(':user_center')
 }

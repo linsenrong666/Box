@@ -5,6 +5,7 @@ import android.text.TextUtils;
 import com.box.biz.contracts.LoginContract;
 import com.box.lib.mvp.PresenterEx;
 import com.box.lib.utils.ToastUtils;
+import com.box.user_center.AccountManager;
 
 public class LoginPresenter extends PresenterEx<LoginContract.View> implements LoginContract.Presenter {
 
@@ -23,6 +24,7 @@ public class LoginPresenter extends PresenterEx<LoginContract.View> implements L
 //            getView().onFailed("密码不能为空");
 //            return;
 //        }
+        AccountManager.getInstance().login("a");
         getView().onLoginSucceed();
     }
 }

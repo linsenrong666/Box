@@ -13,15 +13,15 @@ class FlashPresenter(view: FlashContract.View) : PresenterEx<FlashContract.View>
         const val NEXT_ACT_MAIN = 0
         const val NEXT_ACT_LOGIN = 1
 
-        const val FLASH_TIME: Long = 2 * 1000;
-        const val MSG_START_NEXT = 1;
+        const val FLASH_TIME: Long = 2 * 1000L
+        const val MSG_START_NEXT = 1
     }
 
     private val mAccountManager: AccountManager = AccountManager.getInstance()
 
     private val mHandler: Handler = Handler {
         if (it.what == MSG_START_NEXT) {
-            val nextAct = it.arg1;
+            val nextAct = it.arg1
             getView().startActivity(nextAct)
         }
         false
@@ -33,8 +33,7 @@ class FlashPresenter(view: FlashContract.View) : PresenterEx<FlashContract.View>
     }
 
     override fun startNext() {
-        val nextAct: Int?;
-        nextAct = if (mAccountManager.isLoggedIn) {
+        val nextAct = if (mAccountManager.isLoggedIn) {
             NEXT_ACT_MAIN
         } else {
             NEXT_ACT_LOGIN
