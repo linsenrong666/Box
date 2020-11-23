@@ -1,5 +1,8 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.box.lib" >
+    package="com.box.lib">
 
     <uses-permission android:name="android.permission.READ_PHONE_STATE" />
+    <application>
+        <activity android:name=".videos.VideoActivity" />
+    </application>
 </manifest>

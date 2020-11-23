@@ -20,6 +20,12 @@ public class CommonModule {
             String FRAGMENT_PATH = "fragment_path";
             String PARAMS = "params";
         }
+
+        String VIDEO_PAGE = ACTIVITY + "videoPage";
+
+        interface VideoParams {
+            String VIDEO_PATH = "video_path";
+        }
     }
 
     public interface Fragment {
